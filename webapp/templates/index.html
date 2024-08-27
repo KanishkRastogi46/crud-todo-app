@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="index">
+        <nav>
+            <a href="/users/auth/register">Register</a>
+            <a href="/users/auth/login">Login</a>
+            <a href="/users/auth/logout">Logout</a>
+            <a href="">Home</a>
+        </nav>
+        <hr>
+        <div class="main">
+            <h1>Welcome to Flask Crud Application</h1>
+        </div>
+    </div>
+</body>
+</html>

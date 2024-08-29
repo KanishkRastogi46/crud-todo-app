@@ -5,15 +5,17 @@ var newarr = Array.from(input);
 // for adding blue border in input field while in focus
 newarr.forEach((item)=>{
     item.addEventListener('focus', (event)=>{
-        event.target.style.boxShadow = "3px 3px 5px 2px rgba(0, 0, 255, 0.8)";
+        event.target.style.border = "4px solid blue";
         console.log(event.target.style);
     })
 
     item.addEventListener('blur', (event)=>{
-        event.target.style.boxShadow = "";
+        event.target.style.border = "";
         console.log(event.target.style);
     })
 })
+
+
 
 // for closing the flash messages after submitting the form
 document.querySelectorAll("div.message-box").forEach((box)=>{
@@ -22,3 +24,15 @@ document.querySelectorAll("div.message-box").forEach((box)=>{
         box.style.display = "none";
     })
 })
+
+
+function deleteTodo(id){
+    let formData = {id:id};
+    fetch("/delete-todo", {
+        method : "POST",
+        headers : {
+            "Content-Type" : "application/json"
+        },
+        body : JSON.stringify(formData)
+    }).then((res)=>{});
+}

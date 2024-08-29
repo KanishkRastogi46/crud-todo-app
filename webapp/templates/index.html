@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="index">
@@ -17,8 +19,34 @@
         </nav>
         <hr>
         <div class="main">
-            <h1>Welcome to Flask Crud Application</h1>
+            <div class="options" style="width: 100%; display:flex; justify-content:space-between; align-items:start; margin-bottom: 20px">
+                <a href="/create-todo" style="text-decoration:none;">Create Todo</a>
+                <a href="/" style="text-decoration:none;">List Todos</a>
+            </div>
+            {% block main_content %}
+            
+            {% endblock main_content %}
+
+            {% if user.todos %}
+                {% for todo in user.todos %}
+                    <div class="todo-box">
+                        <div class="text">
+                            <div class="title" style="font-weight:bold;">{{todo.title}}</div>
+                            <div class="message">{{todo.content}}</div>
+                        </div>
+                        <div class="icons">
+                            <a href="/update-todo/{{todo.id}}" style="background:none; border:none;">
+                                <i class="fa fa-edit" style="font-size:24px; color:white" ></i>
+                            </a>
+                            <button class="delete-btn" id="{{todo.id}}" style="background:none; border:none;" onclick="deleteTodo({{todo.id}})">
+                                <i class="material-icons" style="font-size:24px; color:white"  >delete</i>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
+    <script src="{{ url_for('static' , filename='script.js') }}"></script>
 </body>
 </html>

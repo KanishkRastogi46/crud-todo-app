@@ -16,12 +16,15 @@
     justify-content: center;
     align-items: center;
     gap: 50px;
+    height: 100vh;
 }
 
 .main{
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
+    padding: 1.5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -68,7 +71,7 @@ input[type="submit"]{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-style: oblique;
     text-transform: capitalize;
-    height: 100vh;
+    height: 100%;
     background-color: black;
     color: antiquewhite;
     display: flex;
@@ -89,7 +92,7 @@ a{
     width: 100%;
     padding: 10px;
     text-align: center;
-    vertical-align: middle;
+    /* vertical-align: middle; */
 }
 
 .message-box{
@@ -129,4 +132,40 @@ a{
 button>span{
     height: inherit;
     width: inherit;
+}
+
+form#create-todo-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+}
+
+.todo-box{
+    width: 95%;
+    display: flex;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid gray;
+    border-radius: 20px;
+    /* gap: 20px; */
+    margin-bottom: 10px;
+}
+
+.todo-box>.text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+}
+
+.todo-box>.icons{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
